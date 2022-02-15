@@ -67,8 +67,10 @@ const Accordian = () =>{
 }
 
 const Accordians = styled.div`
+  margin: 0; 
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   gap: 16px;
 `
