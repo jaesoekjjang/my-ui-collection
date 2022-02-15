@@ -1,10 +1,18 @@
 import {Story} from '@storybook/react'
 import Button from '../components/Button'
 import styled from 'styled-components'
+import StoryLayout from '../components/StoryLayout'
 
 export default{
   title: 'Components/Button',
   component: Button,
+  decorators: [
+    (Story: Story) => (
+      <StoryLayout>
+        <Story />
+      </StoryLayout>
+    )
+  ],
 }
 
 const Template:Story = (args) => <Button {...args} />

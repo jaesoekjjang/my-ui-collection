@@ -42,7 +42,10 @@ const Wrapper = styled.div`
   padding: 8px;
   display: flex;
   justify-content: space-between;
-  border:  ${props=>props.isOpen ? '2px solid #4181ED' : '1px solid gray'};
+  color: ${props=>props.isOpen && '#1971c2'};
+  font-weight: ${props=>props.isOpen && '600'};
+  background: #F7F6F3;
+  border:  ${props=>props.isOpen ? '2px solid #1971c2' : '1px solid gray'};
   cursor: pointer;
 `
 
@@ -50,6 +53,7 @@ const Contents = styled.div<{isOpen: boolean}>`
   box-sizing: border-box;
   height: ${props=>props.isOpen ? '200px' : 0};
   padding: ${props=>props.isOpen ? '8px' : 0};
+  background: white;
   border: ${props=>props.isOpen ? '1px' : '0px'} solid gray;
   border-top: ${props=>props.isOpen && 0};
   overflow-y: ${props=>props.isOpen ? 'scroll' : 'hidden'};
@@ -67,11 +71,8 @@ const Accordian = () =>{
 }
 
 const Accordians = styled.div`
-  margin: 0; 
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   gap: 16px;
 `
 
