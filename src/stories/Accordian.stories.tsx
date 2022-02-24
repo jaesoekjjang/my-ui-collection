@@ -14,6 +14,4 @@ export default {
   ]
 }
 
-const Template:Story = (args) => <Accordian {...args} />
-
-export const BasicAccordian = Template.bind({});
+export const BasicAccordian:Story = () => <Accordian />
