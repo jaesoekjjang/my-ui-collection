@@ -22,7 +22,7 @@ const Background = styled.div<{clicked: boolean}>`
   height: 100vh;
   justify-content: center;
   align-items: center;
-  background: ${props=>props.clicked ? 'radial-gradient(circle at center,#ffd600 0%, #fbb232 15%, #dba23e 30%, black 100%)' : 'black'};
+  background: ${props=>props.clicked ? 'radial-gradient(circle at top,#ffd600 0%, #fbb232 15%, #dba23e 30%, black 100%)' : 'black'};
 `
 
 const Wrapper = styled.div<{clicked: boolean}>`
@@ -67,7 +67,7 @@ const Circle = styled.span<{clicked:boolean}>`
   left: ${props=>props.clicked ? '100%': 0};
   transform: translate(-50%, -50%);
   border-radius:50%;
-  background: ${props=>props.clicked ? '#F2F030' : '#E0E0E0'};
+  background: ${props=>props.clicked ? '#FCDD09' : '#E0E0E0'};
   transition: left 0.5s;
 `
 

@@ -7,7 +7,7 @@ export default{
   component: ThreeDRotation,
   decorators: [
     (Story: Story) => (
-      <StoryLayout background='radial-gradient(#ffcf9c, #fcbf7d, #ffa94d)'>
+      <StoryLayout background='radial-gradient(#ffcf9c, #ffa94d)'>
         <Story />
       </StoryLayout>
     )
