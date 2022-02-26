@@ -1,10 +1,10 @@
 import { Story } from "@storybook/react";
-import ThreeDRotation from "../components/Rotation/ThreeDRotation";
+import Cube from "../components/Cube";
 import StoryLayout from "../components/StoryLayout";
 
 export default{
-  title: 'Components/Rotation',
-  component: ThreeDRotation,
+  title: 'Components/Cube',
+  component: Cube,
   decorators: [
     (Story: Story) => (
       <StoryLayout background='radial-gradient(#ffcf9c, #ffa94d)'>
@@ -14,7 +14,4 @@ export default{
   ]
 }
 
-const Template: Story = () => <ThreeDRotation />
-
-
-export const ThreeD = Template.bind({})
+export const BasicCube = () => <Cube />

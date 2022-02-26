@@ -1,12 +1,12 @@
 import React, { useState} from 'react'
 import styled from 'styled-components'
 
-const ThreeDRotation = () => {
+const BasicCube = () => {
   const [vector, setVector] = useState([1, 1, 1])
   const [deg, setDeg] = useState(30)
 
   const handleClick = () =>{
-    setVector([Math.random()*2-1, Math.random()*2-1, Math.random()*2-1])
+    setVector(Array(3).fill(0).map(()=>Math.random()*2-1))
     setDeg(Math.random()*360)
   }
 
@@ -32,7 +32,7 @@ const Cube = styled.div<{vector: number[], deg: number}>`
   font-size: 2rem;
   transform-style: preserve-3d;
   transform: ${props=>`rotate3d(${props.vector[0]}, ${props.vector[1]}, ${props.vector[2]}, ${props.deg}deg)`};
-  transition: all 1s;
+  transition: transform 1s;
   cursor: pointer;
   user-select: none;
 
@@ -71,4 +71,4 @@ const Back = styled.div`
 `
 
 
-export default ThreeDRotation;
+export default BasicCube;
