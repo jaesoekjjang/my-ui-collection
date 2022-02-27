@@ -14,4 +14,4 @@ export default {
   ],
 };
 
-export const BasicCube = () => <Cube />;
+export const ThreeDRotation = () => <Cube />;

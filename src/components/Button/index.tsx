@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, { value css } from 'styled-components';
+import styled, { css } from 'styled-components';
 
 type ThemeName = 'primary' | 'secondary' | 'warning';
 
