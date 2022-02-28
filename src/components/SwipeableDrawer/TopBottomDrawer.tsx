@@ -23,10 +23,10 @@ const Wrapper = styled.div<{ direction: TopBottom; open: boolean }>`
   top: ${(props) => props.direction === 'top' && 0};
   bottom: ${(props) => props.direction === 'bottom' && 0};
   width: 100vw;
-  max-height: ${(props) => (props.open ? '100vh' : 0)};
+  max-height: ${(props) => (props.open ? '60vh' : 0)};
   background: #444444;
-  color: white;
+  color: whitesmoke;
   overflow: hidden;
-  transition: all 0.5s ease-out;
+  transition: max-height 0.4s ease-out;
 `;
 export default TopBottomDrawer;

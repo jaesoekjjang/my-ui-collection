@@ -24,7 +24,7 @@ const Background = styled.div<{ clicked: boolean }>`
   align-items: center;
   background: ${(props) =>
     props.clicked
-      ? 'radial-gradient(circle at top,#ffd600 0%, #fbb232 15%, #dba23e 30%, black 100%)'
+      ? 'radial-gradient(circle at top,#ffd600 0%, #fbb232 15%, #dba23e 25%, black 100%)'
       : 'black'};
 `;
 

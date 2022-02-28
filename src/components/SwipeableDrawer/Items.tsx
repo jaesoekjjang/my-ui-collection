@@ -36,8 +36,6 @@ const Li = styled.li`
 
 const Ul = styled.ul`
   margin: 0;
-  padding: 0;
-
   padding: 16px 16px;
   cursor: pointer;
 
@@ -48,7 +46,6 @@ const Ul = styled.ul`
 
 const Hr = styled.hr`
   margin: 0;
-  color: whitesmoke;
 `;
 
 export default Items;
