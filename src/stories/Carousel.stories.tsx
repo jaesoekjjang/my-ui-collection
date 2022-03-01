@@ -3,7 +3,7 @@ import Carousel from '../components/Carousel';
 import StoryLayout from '../components/StoryLayout';
 
 export default {
-  title: 'Components/Carousel',
+  title: 'CSS/Carousel',
   component: Carousel,
   decorators: [
     (Story: Story) => (

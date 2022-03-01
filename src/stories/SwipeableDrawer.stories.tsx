@@ -1,7 +1,7 @@
 import SwipeableDrawer from '../components/SwipeableDrawer';
 
 export default {
-  title: 'Components/Drawer',
+  title: 'CSS/Drawer',
   component: SwipeableDrawer,
 };
 

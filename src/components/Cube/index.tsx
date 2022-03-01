@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
+const cubeSize = 150;
+
 const BasicCube = () => {
   const [vector, setVector] = useState([1, 1, 1]);
   const [deg, setDeg] = useState(30);
@@ -31,8 +33,8 @@ const Cube = styled.div<{ vector: number[]; deg: number }>`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 150px;
-  height: 150px;
+  width: ${cubeSize}px;
+  height: ${cubeSize}px;
   font-size: 2rem;
   transform-style: preserve-3d;
   transform: ${(props) =>
@@ -47,32 +49,32 @@ const Cube = styled.div<{ vector: number[]; deg: number }>`
     height: 100%;
     background: #ff9070;
     text-align: center;
-    line-height: 150px;
+    line-height: ${cubeSize}px;
     border: 1px solid black;
   }
 `;
 
 const Front = styled.div`
-  transform: translateZ(75px);
+  transform: translateZ(${cubeSize / 2}px);
 `;
 const Left = styled.div`
-  right: 75px;
+  right: ${cubeSize / 2}px;
   transform: rotateY(-90deg);
 `;
 const Right = styled.div`
-  left: 75px;
+  left: ${cubeSize / 2}px;
   transform: rotateY(90deg);
 `;
 const Top = styled.div`
-  bottom: 75px;
+  bottom: ${cubeSize / 2}px;
   transform: rotateX(90deg);
 `;
 const Bottom = styled.div`
-  top: 75px;
+  top: ${cubeSize / 2}px;
   transform: rotateX(-90deg);
 `;
 const Back = styled.div`
-  transform: translateZ(-75px);
+  transform: translateZ(-${cubeSize / 2}px);
 `;
 
 export default BasicCube;

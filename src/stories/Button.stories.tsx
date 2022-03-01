@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import StoryLayout from '../components/StoryLayout';
 
 export default {
-  title: 'Components/Button',
+  title: 'CSS/Button',
   component: Button,
   decorators: [
     (Story: Story) => (

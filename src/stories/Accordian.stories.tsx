@@ -3,7 +3,7 @@ import Accordian from '../components/Accordian';
 import StoryLayout from '../components/StoryLayout';
 
 export default {
-  title: 'Components/Accordian',
+  title: 'CSS/Accordian',
   component: Accordian,
   decorators: [
     (Story: Story) => (

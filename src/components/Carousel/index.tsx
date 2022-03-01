@@ -7,13 +7,11 @@ const Carousel = () => {
   const [pageIndex, setPageIndex] = useState(0);
 
   useEffect(() => {
-    setInterval(moveToNextSlide, 5000);
+    setInterval(moveToNextSlide, 3000);
   }, []);
 
   const moveToNextSlide = () => {
-    setPageIndex((index) => {
-      return index + 1;
-    });
+    setPageIndex((index) => index + 1);
   };
 
   const moveToPrevSlide = () => {

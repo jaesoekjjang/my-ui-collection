@@ -3,7 +3,7 @@ import Cube from '../components/Cube';
 import StoryLayout from '../components/StoryLayout';
 
 export default {
-  title: 'Components/Cube',
+  title: 'CSS/Cube',
   component: Cube,
   decorators: [
     (Story: Story) => (
