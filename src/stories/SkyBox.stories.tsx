@@ -5,4 +5,4 @@ export default {
   component: SkyBox,
 };
 
-export const BasicSkyBox = () => <SkyBox />;
+export const Mountain = () => <SkyBox />;
