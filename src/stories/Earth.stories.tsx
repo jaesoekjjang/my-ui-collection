@@ -5,4 +5,4 @@ export default {
   component: Orbit,
 };
 
-export const BasicOrbit = () => <Orbit />;
+export const Earth = () => <Orbit />;
