@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Hamburger from './Hamburger';
+import Hamburger from '../Icons/Hamburger';
 
 interface ItemsProps {
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
