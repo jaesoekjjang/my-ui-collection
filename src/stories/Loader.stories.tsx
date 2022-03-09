@@ -1,10 +1,11 @@
 import { Story } from '@storybook/react';
-import Spinner from '../components/Loader/Spinner';
 import StoryLayout from '../components/StoryLayout';
+import SpinningBubble from '../components/Loader/SpinningBubble';
+import SpinningCurve from '../components/Loader/SpinningCurve';
 
 export default {
   title: 'CSS/Loader',
-  component: Spinner,
+  component: SpinningBubble,
   decorators: [
     (Story: Story) => (
       <StoryLayout background="white">
@@ -14,4 +15,6 @@ export default {
   ],
 };
 
-export const Spin: Story = () => <Spinner />;
+export const Bubble: Story = () => <SpinningBubble />;
+
+export const Curve: Story = () => <SpinningCurve />;
