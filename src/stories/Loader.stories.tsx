@@ -8,7 +8,7 @@ export default {
   component: SpinningBubble,
   decorators: [
     (Story: Story) => (
-      <StoryLayout background="white">
+      <StoryLayout background="black">
         <Story />
       </StoryLayout>
     ),
@@ -16,5 +16,4 @@ export default {
 };
 
 export const Bubble: Story = () => <SpinningBubble />;
-
 export const Curve: Story = () => <SpinningCurve />;
