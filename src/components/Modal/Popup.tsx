@@ -14,8 +14,8 @@ const Popup: React.VFC<PopupProps> = (props) => {
   };
 
   return (
-    <Wrapper isOpen={isOpen} onClick={handleClick}>
-      <Modal isOpen={isOpen}>
+    <Background isOpen={isOpen} onClick={handleClick}>
+      <Container isOpen={isOpen}>
         <Title>
           <h4>Modal Title</h4>
           <span onClick={handleClick}>X</span>
@@ -32,12 +32,12 @@ const Popup: React.VFC<PopupProps> = (props) => {
             in
           </p>
         </Content>
-      </Modal>
-    </Wrapper>
+      </Container>
+    </Background>
   );
 };
 
-const Wrapper = styled.div<{ isOpen: boolean }>`
+const Background = styled.div<{ isOpen: boolean }>`
   position: absolute;
   display: flex;
   justify-content: center;
@@ -52,7 +52,7 @@ const Wrapper = styled.div<{ isOpen: boolean }>`
   transition: all 0.4s;
 `;
 
-const Modal = styled.div<{ isOpen: boolean }>`
+const Container = styled.div<{ isOpen: boolean }>`
   position: fixed;
   width: 500px;
   height: 250px;
