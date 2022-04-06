@@ -42,7 +42,6 @@ const Img = styled.span`
   width: 72px;
   height: 72px;
   border-radius: 50%;
-  background: lightgray;
 `;
 
 const Text = styled.div`
@@ -50,8 +49,7 @@ const Text = styled.div`
   flex-direction: column;
   gap: 8px;
 
-  & div {
-    background: lightgray;
+  & > span {
     border-radius: 5px;
   }
 `;

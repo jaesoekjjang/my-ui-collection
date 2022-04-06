@@ -34,6 +34,6 @@ const El = styled.div`
   padding: 8px 16px;
   background: white;
   border: 1px solid lightgray;
-  cursor: pointer;
+  cursor: move;
 `;
 export default ListItem;
