@@ -32,6 +32,7 @@ const MyButton = styled.button<{ theme: Theme; height: string; fontSize: string;
   border-radius: 0.25rem;
   line-height: 1;
   font-weight: 600;
+  cursor: pointer;
 
   ${(props) =>
     css`

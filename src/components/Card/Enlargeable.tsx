@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const EnlargeableCard = () => {
+const Enlargeable = () => {
   return (
     <Container>
       <Top>
@@ -75,4 +75,4 @@ const Tags = styled.div`
   }
 `;
 
-export default EnlargeableCard;
+export default Enlargeable;
