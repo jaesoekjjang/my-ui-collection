@@ -44,6 +44,7 @@ const Img = styled.div`
   background-image: url('./EnlargeableCardImage.jpg');
   background-size: cover;
   background-position: center center;
+  cursor: pointer;
   transition: 0.5s ease;
 `;
 
