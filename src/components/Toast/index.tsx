@@ -1,26 +1,26 @@
 import React, { useState, useCallback } from 'react';
-import ToastItem from './Toast';
+import ToastItem from './ToastItem';
 import styled from 'styled-components';
 
 type ToastItemInfo = {
   content: string | React.ReactNode;
-  id: number;
+  id: string;
 };
 
 const ToastContainer = () => {
-  const [toastItems, setToastItems] = useState<ToastItemInfo[]>([{ content: 'Toasted !', id: 0 }]);
+  const [toastItems, setToastItems] = useState<ToastItemInfo[]>([]);
 
   const handleClick = () => {
     setToastItems((toastItems) => [
-      ...toastItems,
       {
         content: 'Toasted !',
-        id: toastItems.length > 0 ? toastItems[toastItems.length - 1].id + 1 : 0,
+        id: String(Math.random()).substring(2, 8),
       },
+      ...toastItems,
     ]);
   };
 
-  const removeToast = useCallback((id: number) => {
+  const removeToast = useCallback((id: string) => {
     setToastItems((toastItems) => toastItems.filter((toast) => toast.id !== id));
   }, []);
 
@@ -29,20 +29,17 @@ const ToastContainer = () => {
   };
 
   const mapItems = (toastItems: ToastItemInfo[]) => {
-    return (
-      hasItems(toastItems) &&
-      toastItems.map((toast) => (
-        <ToastItem key={toast.id} id={toast.id} removeToast={removeToast}>
-          {toast.content}
-        </ToastItem>
-      ))
-    );
+    return toastItems.map((toast) => (
+      <ToastItem key={toast.id} id={toast.id} removeToast={removeToast}>
+        {toast.content}
+      </ToastItem>
+    ));
   };
 
   return (
     <div>
       <Button onClick={handleClick}>Toast 🍞</Button>
-      {<Container>{mapItems(toastItems)}</Container>}
+      {hasItems(toastItems) && <Container>{mapItems(toastItems)}</Container>}
     </div>
   );
 };
@@ -55,14 +52,6 @@ const Container = styled.div`
   top: 0;
   right: 0;
   margin: 16px;
-
-  .show {
-    transform: translateX(0);
-  }
-
-  .hide {
-    transform: translateX(120%);
-  }
 `;
 
 const Button = styled.button`
