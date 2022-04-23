@@ -4,23 +4,23 @@ import Bell from '../Icons/Bell';
 import User from '../Icons/User';
 import styled from 'styled-components';
 
-const Menu = () => {
+const Buttons = () => {
   return (
-    <Ul>
-      <li>
+    <Container>
+      <Button>
         <Mail />
-      </li>
-      <li>
+      </Button>
+      <Button>
         <Bell />
-      </li>
-      <li>
+      </Button>
+      <Button>
         <User />
-      </li>
-    </Ul>
+      </Button>
+    </Container>
   );
 };
 
-const Ul = styled.ul`
+const Container = styled.div`
   display: flex;
   gap: 8px;
   padding: 0;
@@ -28,4 +28,15 @@ const Ul = styled.ul`
   list-style: none;
 `;
 
-export default Menu;
+const Button = styled.button`
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+
+  & svg {
+    display: block;
+  }
+`;
+
+export default Buttons;
