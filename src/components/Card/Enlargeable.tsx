@@ -5,7 +5,7 @@ const Enlargeable = () => {
   return (
     <Container>
       <Top>
-        <Img></Img>
+        <Img width="100%" height="100%" src="./card-image.jpg"></Img>
       </Top>
       <Bottom>
         <h2>Hover the Image</h2>
@@ -29,23 +29,21 @@ const Top = styled.div`
   height: 55%;
   transition: 0.5s ease;
 
-  &: hover {
+  &:hover {
     height: 100%;
-  }
-
-  &: hover > div {
-    transform: scale(1.15);
   }
 `;
 
-const Img = styled.div`
-  height: 100%;
-  width: 100%;
-  background-image: url('./EnlargeableCardImage.jpg');
-  background-size: cover;
-  background-position: center center;
+const Img = styled.img`
+  object-fit: cover;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
   cursor: pointer;
   transition: 0.5s ease;
+
+  &:hover {
+    transform: scale(1.15);
+  }
 `;
 
 const Bottom = styled.div`
