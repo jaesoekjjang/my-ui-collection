@@ -1,26 +1,40 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import Menu from './Menu';
+
+type Direction = 'up' | 'down';
 
 const height = 64;
 
 const HideAppBar = () => {
-  const [deltaY, setDeltaY] = useState(0);
+  const [direction, setDirection] = useState<Direction>('up');
+
+  const lastPos = useRef(0);
+  const deltaY = useRef(-1);
 
   useEffect(() => {
-    const handleWheel = (e: WheelEvent) => {
-      if (deltaY !== e.deltaY) {
-        setDeltaY(e.deltaY);
+    const handleWheel = () => {
+      const crntPos = window.scrollY;
+      if (deltaY.current > 0 && crntPos < lastPos.current) {
+        deltaY.current = -1;
+        setDirection('up');
       }
+
+      if (deltaY.current < 0 && crntPos > lastPos.current) {
+        deltaY.current = 1;
+        setDirection('down');
+      }
+
+      lastPos.current = crntPos;
     };
 
-    window.addEventListener('wheel', handleWheel);
+    window.addEventListener('scroll', handleWheel);
     return () => window.removeEventListener('wheel', handleWheel);
   }, []);
 
   return (
     <div style={{ position: 'relative', height: '250vh' }}>
-      <AppBar deltaY={deltaY}>
+      <AppBar direction={direction}>
         <Title>
           <a
             href="/"
@@ -99,7 +113,7 @@ const HideAppBar = () => {
   );
 };
 
-const AppBar = styled.header<{ deltaY: number }>`
+const AppBar = styled.header<{ direction: Direction }>`
   position: fixed;
   top: 0;
   display: flex;
@@ -112,7 +126,7 @@ const AppBar = styled.header<{ deltaY: number }>`
   background: #4c6ef5;
   color: white;
   transition: 0.3s;
-  transform: translateY(${(props) => (props.deltaY > 0 ? '-100%' : '0')});
+  transform: translateY(${(props) => (props.direction === 'up' ? '0' : '-100%')});
 `;
 
 const Title = styled.div`

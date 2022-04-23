@@ -5,12 +5,15 @@ const ScrollIndicator = () => {
   let scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    window.addEventListener('scroll', (e) => {
-      if (scrollRef.current)
-        scrollRef.current.style.width = `${
-          (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100
-        }%`;
-    });
+    const animation = () => {
+      if (!scrollRef.current) return;
+      scrollRef.current.style.width = `${
+        (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100
+      }%`;
+    };
+
+    window.addEventListener('scroll', animation);
+    return () => window.removeEventListener('scroll', animation);
   }, []);
 
   return (
