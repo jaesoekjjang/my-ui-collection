@@ -3,11 +3,16 @@ import styled from 'styled-components';
 import Chevron from './Chevron';
 import Ads from './Ads';
 
+const WIDTH = 400;
+const HEIGHT = 200;
+const PAGES = 4;
+
 const Carousel = () => {
   const [pageIndex, setPageIndex] = useState(0);
 
   useEffect(() => {
-    setInterval(moveToNextSlide, 3000);
+    const interval = setInterval(moveToNextSlide, 3000);
+    return () => clearInterval(interval);
   }, []);
 
   const moveToNextSlide = () => {
@@ -31,7 +36,7 @@ const Carousel = () => {
           {Array(3)
             .fill(0)
             .map(() => (
-              <Ads />
+              <Ads width={WIDTH} height={HEIGHT} />
             ))}
         </Slides>
       </Container>
@@ -41,36 +46,36 @@ const Carousel = () => {
 
 const Container = styled.div`
   position: relative;
-  width: 400px;
-  height: 200px;
+  width: ${WIDTH}px;
+  height: ${HEIGHT}px;
   overflow: hidden;
 `;
 
 const Slides = styled.div<{ pageIndex: number }>`
   position: absolute;
   display: flex;
-  left: ${(props) => ` ${-400 * props.pageIndex}px`};
+  left: ${(props) => ` ${-WIDTH * props.pageIndex}px`};
   transform: ${(props) =>
-    `translateX(${-1600 + ((props.pageIndex - (props.pageIndex % 4)) / 4) * 1600}px)`};
+    `translateX(${
+      -WIDTH * PAGES + ((props.pageIndex - (props.pageIndex % PAGES)) / PAGES) * WIDTH * PAGES
+    }px)`};
   transition: left 0.7s ease-out;
 `;
 
-const PrevButton = styled.div`
+const Button = styled.div`
   position: absolute;
-  right: calc(100% - 32px);
   top: 50%;
   transform: translateY(-50%);
   z-index: 1;
   cursor: pointer;
 `;
 
-const NextButton = styled.div`
-  position: absolute;
+const PrevButton = styled(Button)`
+  right: calc(100% - 32px);
+`;
+
+const NextButton = styled(Button)`
   left: calc(100% - 32px);
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 1;
-  cursor: pointer;
 `;
 
 export default Carousel;
