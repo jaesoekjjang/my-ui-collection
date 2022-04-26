@@ -7,7 +7,7 @@ export default {
   component: Accordian,
   decorators: [
     (Story: Story) => (
-      <StoryLayout background="#74c0fc">
+      <StoryLayout background="white">
         <Story />
       </StoryLayout>
     ),

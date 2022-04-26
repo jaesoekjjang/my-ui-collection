@@ -16,3 +16,9 @@ export default {
 
 export const Inset = () => <HolographyInset />;
 export const Outset = () => <HolographyOutset />;
+
+type PropType = {
+  explain: string;
+  isOpen: boolean;
+  opClose: () => void;
+};
