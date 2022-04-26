@@ -34,18 +34,18 @@ const MyButton = styled.button<{ theme: Theme; height: string; fontSize: string;
   font-weight: 600;
   cursor: pointer;
 
-  ${(props) =>
+  ${({ height, padding, fontSize, theme }) =>
     css`
-      height: ${props.height};
-      padding: ${props.padding};
-      font-size: ${props.fontSize};
-      color: ${props.theme.color};
-      background: ${props.theme.background};
+      height: ${height};
+      padding: ${padding};
+      color: ${theme.color};
+      font-size: ${fontSize};
+      background: ${theme.background};
       &: hover {
-        background: ${props.theme.hover.background};
+        background: ${theme.hover.background};
       }
-      &: active: {
-        background: ${props.theme.active.background};
+      &: active {
+        background: ${theme.active.background};
       }
     `}
 `;
