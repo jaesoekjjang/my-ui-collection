@@ -1,24 +1,34 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
+import ReactDom from 'react-dom';
 import styled, { keyframes } from 'styled-components';
 
 interface PopupProps {
-  isOpen: boolean;
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const Popup: React.VFC<PopupProps> = (props) => {
-  const { isOpen, setIsOpen } = props;
+  const { setIsOpen } = props;
+  const [animationStart, setAnimationStart] = useState(true);
 
-  const handleClick: React.MouseEventHandler<HTMLDivElement> = (e) => {
-    if (e.target === e.currentTarget) setIsOpen(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  const closeModal = () => {
+    setIsOpen(false);
+    ref.current?.removeEventListener('animationend', closeModal);
   };
 
-  return (
-    <Background isOpen={isOpen} onClick={handleClick}>
-      <Container isOpen={isOpen}>
+  const handleClick: React.MouseEventHandler<HTMLDivElement> = (e) => {
+    if (e.target !== e.currentTarget) return;
+    ref.current?.addEventListener('animationend', closeModal);
+    setAnimationStart(false);
+  };
+
+  return ReactDom.createPortal(
+    <Background animationStart={animationStart} onClick={handleClick}>
+      <Container animationStart={animationStart} ref={ref}>
         <Title>
           <h4>Modal Title</h4>
-          <span onClick={handleClick}>X</span>
+          <span onClick={handleClick}>&#10060;</span>
         </Title>
         <hr />
         <Content>
@@ -33,33 +43,33 @@ const Popup: React.VFC<PopupProps> = (props) => {
           </p>
         </Content>
       </Container>
-    </Background>
+    </Background>,
+    document.getElementById('portal') as Element
   );
 };
 
-const Background = styled.div<{ isOpen: boolean }>`
+const Background = styled.div<{ animationStart: boolean }>`
   position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   background: rgba(0, 0, 0, 0.4);
-  opacity: ${(props) => (props.isOpen ? 1 : 0)};
-  visibility: ${(props) => (props.isOpen ? 'visible' : 'hidden')};
+  opacity: ${(props) => (props.animationStart ? 1 : 0)};
   transition: all 0.4s;
 `;
 
-const Container = styled.div<{ isOpen: boolean }>`
+const Container = styled.div<{ animationStart: boolean }>`
   position: fixed;
   width: 500px;
   height: 250px;
   background: white;
   border-radius: 6px;
   animation: 0.4s ease-in-out 0s 1 normal
-    ${(props) => (props.isOpen ? openKeyFrame : closeKeyFrame)};
+    ${(props) => (props.animationStart ? openKeyFrame : closeKeyFrame)};
 
   div {
     padding: 8px 16px;

@@ -1,13 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Popup from './Popup';
 import styled from 'styled-components';
 
 const Modal = () => {
   const [isOpen, setIsOpen] = useState(false);
 
+  useEffect(() => {
+    const portal = document.createElement('div');
+    portal.setAttribute('id', 'portal');
+    const root = document.querySelector('#root');
+    root?.parentNode?.insertBefore(portal, root?.nextSibling as Node);
+    return () => {
+      root?.parentNode?.removeChild(portal);
+    };
+  }, []);
+
   return (
     <div>
-      <Popup isOpen={isOpen} setIsOpen={setIsOpen} />
+      {isOpen && <Popup setIsOpen={setIsOpen} />}
       <Button role="button" onClick={() => setIsOpen(true)}>
         Click Me!!
       </Button>

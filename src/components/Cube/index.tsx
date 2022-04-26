@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-const cubeSize = 150;
+const CUBE_SIZE = 150;
 
 const BasicCube = () => {
   const [vector, setVector] = useState([1, 1, 1]);
@@ -33,12 +33,12 @@ const Cube = styled.div<{ vector: number[]; deg: number }>`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: ${cubeSize}px;
-  height: ${cubeSize}px;
+  width: ${CUBE_SIZE}px;
+  height: ${CUBE_SIZE}px;
   font-size: 2rem;
   transform-style: preserve-3d;
-  transform: ${(props) =>
-    `rotate3d(${props.vector[0]}, ${props.vector[1]}, ${props.vector[2]}, ${props.deg}deg)`};
+  transform: ${({ vector, deg }) =>
+    `rotate3d(${vector[0]}, ${vector[1]}, ${vector[2]}, ${deg}deg)`};
   transition: transform 1s;
   cursor: pointer;
   user-select: none;
@@ -49,32 +49,32 @@ const Cube = styled.div<{ vector: number[]; deg: number }>`
     height: 100%;
     background: #ff9070;
     text-align: center;
-    line-height: ${cubeSize}px;
+    line-height: ${CUBE_SIZE}px;
     border: 1px solid black;
   }
 `;
 
 const Front = styled.div`
-  transform: translateZ(${cubeSize / 2}px);
+  transform: translateZ(${CUBE_SIZE / 2}px);
 `;
 const Left = styled.div`
-  right: ${cubeSize / 2}px;
+  right: ${CUBE_SIZE / 2}px;
   transform: rotateY(-90deg);
 `;
 const Right = styled.div`
-  left: ${cubeSize / 2}px;
+  left: ${CUBE_SIZE / 2}px;
   transform: rotateY(90deg);
 `;
 const Top = styled.div`
-  bottom: ${cubeSize / 2}px;
+  bottom: ${CUBE_SIZE / 2}px;
   transform: rotateX(90deg);
 `;
 const Bottom = styled.div`
-  top: ${cubeSize / 2}px;
+  top: ${CUBE_SIZE / 2}px;
   transform: rotateX(-90deg);
 `;
 const Back = styled.div`
-  transform: translateZ(-${cubeSize / 2}px);
+  transform: translateZ(-${CUBE_SIZE / 2}px);
 `;
 
 export default BasicCube;
