@@ -1,22 +1,18 @@
-import React from 'react';
+import React, { memo } from 'react';
 import styled from 'styled-components';
 import Hamburger from '../Icons/Hamburger';
 
 interface ItemsProps {
-  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  setIsOpen: () => void;
 }
 
 const items = ['받은 편지함', '임시 보관함', '보낸 편지함', '기타'];
 
 const Items: React.VFC<ItemsProps> = ({ setIsOpen }) => {
-  const closeDrawer = () => {
-    setIsOpen((p) => !p);
-  };
-
   return (
     <Li>
       <div style={{ padding: '8px 16px' }}>
-        <span style={{ cursor: 'pointer' }} onClick={closeDrawer}>
+        <span style={{ cursor: 'pointer' }} onClick={() => setIsOpen()}>
           <Hamburger />
         </span>
       </div>
@@ -35,8 +31,10 @@ const Li = styled.li`
 `;
 
 const Ul = styled.ul`
+  box-sizing: border-box;
   margin: 0;
   padding: 16px 16px;
+  height: 52px;
   cursor: pointer;
 
   &:hover {
@@ -48,4 +46,4 @@ const Hr = styled.hr`
   margin: 0;
 `;
 
-export default Items;
+export default memo(Items);

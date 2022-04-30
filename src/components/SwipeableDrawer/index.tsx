@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import styled from 'styled-components';
 import Drawer from './Drawer';
 
@@ -8,25 +8,30 @@ const SwipeableDrawer: React.VFC = () => {
   const [isTopOpen, setIsTopOpen] = useState(false);
   const [isBottomOpen, setIsBottomOpen] = useState(false);
 
+  const handleLeftClick = useCallback(() => setIsLeftOpen((p) => !p), []);
+  const handleRightClick = useCallback(() => setIsRightOpen((p) => !p), []);
+  const handleTopClick = useCallback(() => setIsTopOpen((p) => !p), []);
+  const handleBottomClick = useCallback(() => setIsBottomOpen((p) => !p), []);
+
   return (
     <DrawerLayout>
       <div>
-        <Drawer direction="left" open={isLeftOpen} setIsOpen={setIsLeftOpen} />
-        <Drawer direction="right" open={isRightOpen} setIsOpen={setIsRightOpen} />
-        <Drawer direction="top" open={isTopOpen} setIsOpen={setIsTopOpen} />
-        <Drawer direction="bottom" open={isBottomOpen} setIsOpen={setIsBottomOpen} />
+        <Drawer direction="left" open={isLeftOpen} setIsOpen={handleLeftClick} />
+        <Drawer direction="right" open={isRightOpen} setIsOpen={handleRightClick} />
+        <Drawer direction="top" open={isTopOpen} setIsOpen={handleTopClick} />
+        <Drawer direction="bottom" open={isBottomOpen} setIsOpen={handleBottomClick} />
       </div>
       <Buttons style={{ userSelect: 'none' }}>
-        <Button role="button" onClick={() => setIsLeftOpen((p) => !p)}>
+        <Button role="button" onClick={handleLeftClick}>
           LEFT
         </Button>
-        <Button role="button" onClick={() => setIsRightOpen((p) => !p)}>
+        <Button role="button" onClick={handleRightClick}>
           RIGHT
         </Button>
-        <Button role="button" onClick={() => setIsTopOpen((p) => !p)}>
+        <Button role="button" onClick={handleTopClick}>
           TOP
         </Button>
-        <Button role="button" onClick={() => setIsBottomOpen((p) => !p)}>
+        <Button role="button" onClick={handleBottomClick}>
           BOTTOM
         </Button>
       </Buttons>

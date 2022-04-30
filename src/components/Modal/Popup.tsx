@@ -44,7 +44,7 @@ const Popup: React.VFC<PopupProps> = (props) => {
         </Content>
       </Container>
     </Background>,
-    document.getElementById('portal') as Element
+    document.querySelector('#portal') as Element
   );
 };
 

@@ -42,7 +42,7 @@ const HolographyOutset = () => {
     window.addEventListener('mousemove', animation);
 
     return () => window.removeEventListener('mousemove', animation);
-  });
+  }, []);
 
   return (
     <Container ref={containerRef}>

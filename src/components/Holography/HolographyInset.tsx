@@ -38,7 +38,7 @@ const HolographyInset = () => {
 
     window.addEventListener('mousemove', animation);
     return () => window.removeEventListener('mousemove', animation);
-  });
+  }, []);
 
   return (
     <Container ref={containerRef}>

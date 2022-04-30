@@ -10,6 +10,7 @@ const Modal = () => {
     portal.setAttribute('id', 'portal');
     const root = document.querySelector('#root');
     root?.parentNode?.insertBefore(portal, root?.nextSibling as Node);
+
     return () => {
       root?.parentNode?.removeChild(portal);
     };
