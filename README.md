@@ -1,7 +1,7 @@
 # UI-Collection
 
 - css, three.js 공부를 위한 프로젝트입니다.
-- [Storybook](https://6224482913a252003a00c085-ekwxxorivy.chromatic.com/)에서 볼 수 있습니다.
+- [Storybook](https://6224482913a252003a00c085-roubhojmlx.chromatic.com/)에서 볼 수 있습니다.
 
 ## 프로젝트 목표
 
