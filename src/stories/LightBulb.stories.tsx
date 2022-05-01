@@ -1,9 +1,9 @@
 import { Story } from '@storybook/react';
-import LightBulb from '../components/Switch/LightBulb';
+import Light from '../components/Switch/LightBulb';
 
 export default {
   title: 'CSS/Switch',
-  component: LightBulb,
+  component: Light,
 };
 
-export const Light: Story = () => <LightBulb />;
+export const LightBulb: Story = () => <Light />;

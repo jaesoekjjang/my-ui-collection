@@ -10,19 +10,21 @@ const items = ['받은 편지함', '임시 보관함', '보낸 편지함', '기�
 
 const Items: React.VFC<ItemsProps> = ({ setIsOpen }) => {
   return (
-    <Li>
+    <>
       <div style={{ padding: '8px 16px' }}>
-        <span style={{ cursor: 'pointer' }} onClick={() => setIsOpen()}>
+        <span style={{ display: 'inline-block', cursor: 'pointer' }} onClick={() => setIsOpen()}>
           <Hamburger />
         </span>
       </div>
       <Hr />
-      {items.map((item) => (
-        <Ul key={item}>
-          <div>{item}</div>
-        </Ul>
-      ))}
-    </Li>
+      <Li>
+        {items.map((item) => (
+          <Ul key={item}>
+            <div>{item}</div>
+          </Ul>
+        ))}
+      </Li>
+    </>
   );
 };
 

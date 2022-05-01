@@ -1,9 +1,9 @@
 import { Story } from '@storybook/react';
-import ScrollIndicator from '../components/ScrollIndicator';
+import Scroll from '../components/ScrollIndicator';
 
 export default {
-  title: 'CSS/ScrollIndicator',
-  component: ScrollIndicator,
+  title: 'CSS/Scroll',
+  component: Scroll,
 };
 
-export const BasicScrollIndicator: Story = () => <ScrollIndicator />;
+export const ScrollIndicator: Story = () => <Scroll />;

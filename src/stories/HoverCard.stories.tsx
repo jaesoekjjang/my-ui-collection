@@ -1,10 +1,10 @@
 import { Story } from '@storybook/react';
-import Enlargeable from '../components/Card/Enlargeable';
+import Hover from '../components/HoverCard';
 import StoryLayout from '../components/StoryLayout';
 
 export default {
   title: 'CSS/Card',
-  component: Enlargeable,
+  component: Hover,
   decorators: [
     (Story: Story) => (
       <StoryLayout background="#EBECF0">
@@ -14,4 +14,4 @@ export default {
   ],
 };
 
-export const EnlargeableCard: Story = () => <Enlargeable />;
+export const HoverCard: Story = () => <Hover />;

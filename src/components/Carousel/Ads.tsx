@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 
 interface AdsProps {
   width: number;
@@ -21,4 +21,4 @@ const Ads: React.VFC<AdsProps> = (props) => {
   );
 };
 
-export default Ads;
+export default memo(Ads);

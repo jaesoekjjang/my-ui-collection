@@ -1,10 +1,10 @@
 import { Story } from '@storybook/react';
-import PasswordToggle from '../components/PasswordToggle';
+import Toggle from '../components/PasswordToggle';
 import StoryLayout from '../components/StoryLayout';
 
 export default {
-  title: 'CSS/PasswordToggle',
-  component: PasswordToggle,
+  title: 'CSS/Password',
+  component: Toggle,
   decorators: [
     (Story: Story) => (
       <StoryLayout background="#0A1929">
@@ -14,4 +14,4 @@ export default {
   ],
 };
 
-export const BasicPasswordToggle: Story = () => <PasswordToggle />;
+export const PasswordToggle: Story = () => <Toggle />;

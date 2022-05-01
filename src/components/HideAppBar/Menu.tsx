@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import Mail from '../Icons/Mail';
 import Bell from '../Icons/Bell';
 import User from '../Icons/User';
@@ -39,4 +39,4 @@ const Button = styled.button`
   }
 `;
 
-export default Buttons;
+export default memo(Buttons);

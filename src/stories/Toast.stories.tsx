@@ -14,4 +14,4 @@ export default {
   ],
 };
 
-export const BasicToast: Story = () => <Toast />;
+export const AutoClose: Story = () => <Toast />;

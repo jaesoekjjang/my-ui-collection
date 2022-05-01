@@ -5,7 +5,6 @@ import SpinningCurve from '../components/Loader/SpinningCurve';
 
 export default {
   title: 'CSS/Loader',
-  component: SpinningBubble,
   decorators: [
     (Story: Story) => (
       <StoryLayout background="black">

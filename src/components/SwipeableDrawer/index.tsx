@@ -21,7 +21,7 @@ const SwipeableDrawer: React.VFC = () => {
         <Drawer direction="top" open={isTopOpen} setIsOpen={handleTopClick} />
         <Drawer direction="bottom" open={isBottomOpen} setIsOpen={handleBottomClick} />
       </div>
-      <Buttons style={{ userSelect: 'none' }}>
+      <Buttons>
         <Button role="button" onClick={handleLeftClick}>
           LEFT
         </Button>
@@ -53,6 +53,7 @@ const DrawerLayout = styled.div`
 const Buttons = styled.div`
   display: flex;
   gap: 16px;
+  userselect: none;
 `;
 
 const Button = styled.div`

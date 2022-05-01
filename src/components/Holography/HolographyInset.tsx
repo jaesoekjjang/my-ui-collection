@@ -1,8 +1,9 @@
 import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
+import { Container, Title } from './styles';
 
-const width = 300;
-const height = 400;
+const WIDTH = 300;
+const HEIGHT = 400;
 
 const HolographyInset = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -41,34 +42,24 @@ const HolographyInset = () => {
   }, []);
 
   return (
-    <Container ref={containerRef}>
-      <Title>
+    <InsetContainer width={WIDTH} height={HEIGHT} ref={containerRef}>
+      <InsetTitle>
         <p>날개 크리보</p>
-      </Title>
-      <Img ref={imgRef} width={width} src="./kuribo.png" alt="kuribo" />
-    </Container>
+      </InsetTitle>
+      <Img ref={imgRef} width={WIDTH} src="./kuribo.png" alt="kuribo" />
+    </InsetContainer>
   );
 };
 
-const Container = styled.div`
-  position: relative;
+const InsetContainer = styled(Container)`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: ${width}px;
-  height: ${height}px;
   background: #f0c2d5;
-  border-radius: 4px;
   overflow: hidden;
-  box-shadow: 0px 0px 20px -4px black;
 `;
 
-const Title = styled.div`
-  position: absolute;
-  width: 100%;
-  text-align: center;
-  font-size: 1.5rem;
-  color: white;
+const InsetTitle = styled(Title)`
   z-index: 1;
 `;
 

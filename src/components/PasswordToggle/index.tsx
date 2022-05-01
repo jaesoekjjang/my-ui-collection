@@ -7,7 +7,7 @@ const PasswordToggle = () => {
   const [visible, setVisible] = useState(false);
   const [focus, setFocus] = useState(false);
 
-  const handleClick = () => {
+  const handleVisible = () => {
     setVisible((p) => !p);
   };
 
@@ -27,7 +27,7 @@ const PasswordToggle = () => {
           onFocus={handleFocus}
           onBlur={handleFocus}
         />
-        <div onClick={handleClick} style={{ cursor: 'pointer' }}>
+        <div onClick={handleVisible} style={{ cursor: 'pointer' }}>
           {visible ? <ClosedEye /> : <OpenEye />}
         </div>
       </Wrapper>

@@ -1,8 +1,9 @@
 import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
+import { Container, Title } from './styles';
 
-const width = 300;
-const height = 400;
+const WIDTH = 300;
+const HEIGHT = 400;
 
 const HolographyOutset = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -27,8 +28,8 @@ const HolographyOutset = () => {
           const yDeg = distanceY / 20;
 
           containerRef.current.style.transform = `rotateX(${-yDeg}deg) rotateY(${xDeg}deg)`;
-          containerRef.current.style.backgroundPosition = `${distanceX * 0.2 - width / 2}px ${
-            distanceY * 0.2 - height / 2
+          containerRef.current.style.backgroundPosition = `${distanceX * 0.2 - WIDTH / 2}px ${
+            distanceY * 0.2 - HEIGHT / 2
           }px`;
           imgRef.current.style.transform = `translateX(${-xDeg * 1.2}px) translateY(${
             -yDeg * 1.2
@@ -45,34 +46,21 @@ const HolographyOutset = () => {
   }, []);
 
   return (
-    <Container ref={containerRef}>
+    <OutsetContainer width={WIDTH} height={HEIGHT} ref={containerRef}>
       <Title>
         <p>푸른 눈의 백룡</p>
       </Title>
-      <Img ref={imgRef} width={width} src="./blue-eyes.png" alt="blue-eyes" />
-    </Container>
+      <Img ref={imgRef} width={WIDTH} src="./blue-eyes.png" alt="blue-eyes" />
+    </OutsetContainer>
   );
 };
 
-const Container = styled.div`
-  position: relative;
-  width: ${width}px;
-  height: ${height}px;
+const OutsetContainer = styled(Container)`
   background-image: url('./flash-background.jpg');
   background-size: 600px 800px;
   background-position: center;
   image-rendering: -webkit-optimize-contrast;
   image-rendering: crisp-edges;
-  border-radius: 4px;
-  box-shadow: 0px 0px 20px -4px black;
-`;
-
-const Title = styled.div`
-  position: absolute;
-  width: 100%;
-  text-align: center;
-  font-size: 1.5rem;
-  color: white;
 `;
 
 const Img = styled.img`
